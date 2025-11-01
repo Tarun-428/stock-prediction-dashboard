@@ -1,0 +1,24 @@
+services:
+  backend:
+    image: tarunpatidar824/stockprediction:backend
+    container_name: stockapp-backend
+    ports:
+      - "5000:5000"
+    environment:
+      - TWELVEDATA_API_KEY=d4bfeabccd1a4fe59c79665e6cec5775
+    networks:
+      - stockapp-net
+
+  frontend:
+    image: tarunpatidar824/stockprediction:frontend
+    container_name: stockapp-frontend
+    ports:
+      - "3000:3000"
+    depends_on:
+      - backend
+    networks:
+      - stockapp-net
+
+networks:
+  stockapp-net:
+    driver: bridge
