@@ -64,30 +64,7 @@ Suggested trade → BUY CALL / BUY PUT
 
 Managed using docker-compose
 
-📁 Project Structure
-StockApp/
-│
-├── backend/
-│   ├── app.py
-│   ├── predictor.py
-│   ├── requirements.txt
-│   ├── Dockerfile
-│   └── ...
-│
-├── frontend/
-│   ├── public/
-│   │   └── index.html
-│   ├── src/
-│   │   ├── components/
-│   │   ├── api.js
-│   │   ├── constants.js
-│   │   ├── App.js
-│   │   └── index.js
-│   ├── package.json
-│   ├── Dockerfile
-│   └── ...
-│
-└── docker-compose.yml
+
 
 🧠 ML Model Explanation (How It Works)
 📌 Step 1: Data Collection
