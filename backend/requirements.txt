@@ -1,9 +1,10 @@
 flask
 flask-cors
+yfinance
 pandas
 numpy
-yfinance
 xgboost
+websockets
+pytz
 scikit-learn
-requests
-python-dotenv
+scipy

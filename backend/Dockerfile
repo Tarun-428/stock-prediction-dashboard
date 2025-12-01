@@ -1,15 +1,17 @@
-# Use slim Python image
+# backend/Dockerfile
 FROM python:3.11-slim
 
-# Set working directory inside container
+# Set working directory
 WORKDIR /app
 
-# Install system deps (if you need yfinance, pandas, etc.)
-RUN apt-get update && apt-get install -y build-essential && rm -rf /var/lib/apt/lists/*
+# Install system deps (needed for numpy, pandas, xgboost, etc.)
+RUN apt-get update && apt-get install -y \
+    build-essential \
+    && rm -rf /var/lib/apt/lists/*
 
-# Install Python dependencies
-COPY requirement.txt .
-RUN pip install --no-cache-dir -r requirement.txt
+# Copy requirements and install
+COPY requirements.txt .
+RUN pip install --no-cache-dir -r requirements.txt
 
 # Copy backend source code
 COPY . .
@@ -17,5 +19,5 @@ COPY . .
 # Expose backend port
 EXPOSE 5000
 
-# Run Flask app (ensure app.run(host="0.0.0.0", port=5000) is set)
+# Run Flask app (app.py must have app.run(host="0.0.0.0", port=5000))
 CMD ["python", "app.py"]
